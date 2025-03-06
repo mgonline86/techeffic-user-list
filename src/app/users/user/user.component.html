@@ -1,0 +1,68 @@
+<section class="px-4 md:max-w-2xl md:container md:mx-auto">
+  @if (isFetching() && !error()) {
+  <div class="my-auto flex justify-center items-center">
+    <div
+      class="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"
+    ></div>
+  </div>
+  } @else if (error()) {
+  <p class="text-destructive text-center md:text-lg">{{ error() }}</p>
+  } @else { @if(user()) {
+  <div
+    class="relative flex flex-col items-center gap-3 border rounded-lg shadow-lg p-4 text-wrap"
+  >
+    <a href=".." class="absolute top-4 left-4 hover:text-accent hover:scale-125 transition">
+      <i-lucide
+        [size]="24"
+        [strokeWidth]="1"
+        [img]="ChevronLeft"
+        class="my-icon"
+      ></i-lucide>
+    </a>
+    <div
+      class="font-semibold rounded-full w-36 h-36 text-4xl flex justify-center items-center border bg-gradient-to-br from-accent to-success text-white"
+    >
+      <app-user-avatar [name]="user()?.name || ''" />
+    </div>
+    <div class="text-lg font-semibold">
+      {{ user()?.name || "" }}
+    </div>
+    <div class="flex flex-col gap-1">
+      <p
+        class="text-xs md:text-sm text-muted-foreground flex items-center gap-1"
+      >
+        <i-lucide
+          [size]="18"
+          [strokeWidth]="1"
+          [img]="Mail"
+          class="my-icon"
+        ></i-lucide>
+        {{ user()?.email || "" }}
+      </p>
+      <p
+        class="text-xs md:text-sm text-muted-foreground flex items-center gap-1"
+      >
+        <i-lucide
+          [size]="18"
+          [strokeWidth]="1"
+          [img]="MapPin"
+          class="my-icon"
+        ></i-lucide>
+        {{ user()?.address?.street || "" }},
+        {{ user()?.address?.city || "" }}
+      </p>
+      <p
+        class="text-xs md:text-sm text-muted-foreground flex items-center gap-1"
+      >
+        <i-lucide
+          [size]="18"
+          [strokeWidth]="1"
+          [img]="Phone"
+          class="my-icon"
+        ></i-lucide>
+        {{ user()?.phone || "" }}
+      </p>
+    </div>
+  </div>
+  } }
+</section>

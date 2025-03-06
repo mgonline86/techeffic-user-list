@@ -1,0 +1,48 @@
+<a [routerLink]="['/users', user().id]">
+  <li
+    class="p-2 border-2 border-muted-foreground rounded-md shadow-lg flex gap-4 cursor-pointer transition hover:border-accent hover:translate-x-1 group"
+  >
+    <div
+      class="font-semibold rounded-full w-12 h-12 text-xl flex justify-center items-center border bg-gradient-to-br from-accent to-success text-white"
+    >
+      <app-user-avatar [name]="user().name" />
+    </div>
+    <div class="flex flex-col justify-center truncate">
+      <p class="text-lg font-semibold">
+        {{ user().name }}
+      </p>
+      <div class="flex flex-wrap gap-x-3 gap-y-2">
+        <span
+          class="text-xs md:text-sm text-muted-foreground flex items-center gap-1"
+        >
+          <i-lucide
+            [size]="18"
+            [strokeWidth]="1"
+            [img]="Mail"
+            class="my-icon"
+          ></i-lucide>
+          {{ user().email }}
+        </span>
+        <span
+          class="text-xs md:text-sm text-muted-foreground flex items-center gap-1"
+        >
+          <i-lucide
+            [size]="18"
+            [strokeWidth]="1"
+            [img]="MapPin"
+            class="my-icon"
+          ></i-lucide>
+          {{ user().address.city }}
+        </span>
+      </div>
+    </div>
+    <div class="hidden text-accent ms-auto self-center group-hover:block animate-pulse">
+      <i-lucide
+        [size]="24"
+        [strokeWidth]="1"
+        [img]="ChevronRight"
+        class="my-icon"
+      ></i-lucide>
+    </div>
+  </li>
+</a>

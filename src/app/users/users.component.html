@@ -1,0 +1,25 @@
+<section class="px-4 md:max-w-2xl md:container md:mx-auto">
+  <input type="search" placeholder="Search..." class="sticky w-full px-6 py-3 border border-muted-foreground rounded-full shadow-md mb-4" [(ngModel)]="searchTerm" />
+  @if (isFetching() && !error()) {
+    <div class="my-auto flex justify-center items-center">
+      <div
+        class="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"
+      ></div>
+    </div>
+  }
+  @else if (error()) {
+    <p class="text-destructive text-center md:text-lg">{{ error() }}</p>
+  }
+  @else{
+    @if (filteredUsers && filteredUsers.length > 0) {
+      <ul class="flex flex-col gap-3">
+        @for (user of filteredUsers; track user.id) {
+         <app-user-list-item [user]="user" />
+        }
+      </ul>
+    }
+    @else{
+      <p class="text-center md:text-lg">Unfortunately, no users could be found.</p>
+    }
+  }
+</section>

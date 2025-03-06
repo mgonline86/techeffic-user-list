@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 50% 100%;
+  --foreground: 222.2 84% 4.9%;
+
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 215.9 100% 56.29%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --success: 146.08 85.79% 40.08%;
+  --success-foreground: 210 40% 98%;
+
+  --warning: 49.15 100% 46.29%;
+  --warning-foreground: 222.2 47.4% 11.2%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 213.7 100% 59.04%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0deg 61.24% 50.83%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 146.08 89.58% 31.81%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 49.15 100% 51.45%;
+    --warning-foreground: 222.2 47.4% 11.2%;
+  }
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+}
+
+body app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+input {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+}
